@@ -1,25 +1,29 @@
 import os
-def votoRepublicano():
-    print('Voto partido republicano')
-    input('Presione "ENTER" para continuar')
-    os.system('cls')
+def votoRepublicano(Voto):
+    if Voto == True:
+        votoRepublicano.cont_republicano+=1
+        print(f'Voto partido republicano, total: {votoRepublicano.cont_republicano}')
+        input('Presione "ENTER" para continuar')
+        os.system('cls')
 
-def votoDemocrata():
-    print('Voto partido democrata')
-    input('Presione "ENTER" para continuar')
-    os.system('cls')
+def votoDemocrata(Voto):
+    if Voto == True:
+        votoDemocrata.cont_democrata+=1
+        print('Voto partido democrata')
+        input('Presione "ENTER" para continuar')
+        os.system('cls')
 
-def contarVotos(cont_republicano,cont_democrata):
+def contarVotos():
     print('Totalización de los votos')
-    print(f'Total de votos Republicanos: {cont_republicano}')
-    print(f'Total de votos Demócratas: {cont_democrata}')
-    print(f'Cantidad total de votos: {cont_republicano+cont_democrata}')
+    print(f'Total de votos Republicanos: {votoRepublicano.cont_republicano}')
+    print(f'Total de votos Demócratas: {votoDemocrata.cont_democrata}')
+    print(f'Cantidad total de votos: {votoRepublicano.cont_republicano+votoDemocrata.cont_democrata}')
     input('Presione "ENTER" para continuar')
     os.system('cls')
 
 opcion =0
-cont_republicano = 0
-cont_democrata = 0
+votoRepublicano.cont_republicano = 0
+votoDemocrata.cont_democrata = 0
 
 while opcion !=4:
     print('\t*** MENU ***')
@@ -32,13 +36,11 @@ while opcion !=4:
     opcion=int(input('Ingrese opción: '))
 
     if opcion==1:
-        cont_republicano+=1
-        votoRepublicano()
+        votoRepublicano(True)
     if opcion==2:
-        cont_democrata+=1
-        votoDemocrata()
+        votoDemocrata(True)
     if opcion==3:
-        contarVotos(cont_republicano,cont_democrata)
+        contarVotos()
     if opcion==4:
         print('Saliendo de sistema de votación...')
     
